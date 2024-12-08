@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <h1>
+        <center>مقدمة</center>
+        المسرح التعليمي هو أحد أساليب التعليم الحديثة التي تعتمد على دمج الفنون المسرحية في العملية التربوية. يُعدّ هذا النهج وسيلة فعّالة لتحفيز الطلاب على التفاعل مع المواد التعليمية وتعزيز التفكير النقدي والإبداعي. وقد قدّم حسن مرعي في كتابه "المسرح التعليمي" رؤية متكاملة لتوظيف المسرح في التعليم، مع التركيز على أسسه وأهميته في تطوير العملية التعليمية.
+
+        ما هو المسرح التعليمي؟
+        المسرح التعليمي هو نوع من النشاط المسرحي يهدف إلى تحقيق أهداف تربوية وتعليمية محددة. يعتمد هذا النوع من المسرح على إشراك الطلاب في أداء أدوار تمثيلية تتعلق بموضوعات دراسية أو قيم تربوية، مما يجعل التعلم تجربة تفاعلية وشيقة.
+        
+        أهمية المسرح التعليمي
+        
+        تعزيز الفهم: يُسهّل المسرح التعليمي توصيل الأفكار والمفاهيم للطلاب بطريقة ممتعة ومباشرة.
+        تنمية المهارات الشخصية: يتيح للطلاب فرصة تنمية مهارات الاتصال، العمل الجماعي، وحل المشكلات.
+        تعزيز القيم الأخلاقية: يسهم المسرح في غرس القيم الإيجابية كالتعاون، الاحترام، والتسامح.
+        تنشيط الإبداع: يُحفّز الخيال والإبداع لدى الطلاب من خلال الكتابة التمثيلية أو تجسيد الشخصيات.
+        أسس المسرح التعليمي وفقًا لحسن مرعي
+        في كتابه "المسرح التعليمي"، يُبرز حسن مرعي مجموعة من المبادئ الأساسية التي يجب مراعاتها عند توظيف المسرح في التعليم، منها:
+        
+        اختيار الموضوعات المناسبة: ينبغي أن تكون الموضوعات مرتبطة بالمنهج الدراسي وتعكس اهتمامات الطلاب.
+        تبسيط اللغة المسرحية: يجب استخدام لغة سهلة ومفهومة تناسب مستوى الطلاب.
+        التفاعل مع الجمهور: يعتمد المسرح التعليمي على خلق حالة من التفاعل بين المؤدين والجمهور لتعزيز الفهم.
+        التوجيه الأخلاقي: يهدف المسرح إلى توجيه الطلاب نحو القيم الإنسانية النبيلة.
+        نماذج تطبيقية للمسرح التعليمي
+        يشير حسن مرعي إلى أهمية تقديم نماذج عملية يمكن تنفيذها في المدارس. على سبيل المثال:
+        
+        مشاهد درامية قصيرة: تمثيل مشهد بسيط يوضح مفهومًا علميًا مثل دورة الماء في الطبيعة.
+        مسرح القيم الأخلاقية: كتابة نصوص درامية تعالج قضايا اجتماعية مثل الصدق أو الأمانة.
+        تمثيل الأحداث التاريخية: تقديم مشاهد تمثيلية تحكي قصصًا من التاريخ لتعزيز الفهم.
+        تحديات المسرح التعليمي
+        على الرغم من أهميته، يواجه المسرح التعليمي عدة تحديات، منها:
+        
+        نقص الموارد: قلة الإمكانيات المادية قد تؤثر على جودة الأداء.
+        ضعف التدريب: حاجة المعلمين إلى تدريب متخصص في تقنيات المسرح التعليمي.
+        محدودية الوقت: صعوبة تخصيص وقت كافٍ للمسرح ضمن الجدول الدراسي المزدحم.
+       <center> الخاتمة</center>
+        المسرح التعليمي أداة تعليمية مبتكرة تجمع بين المتعة والمعرفة، مما يسهم في بناء شخصية الطلاب وتنمية مهاراتهم المختلفة. بفضل الجهود مثل تلك التي قدمها حسن مرعي في كتابه، أصبح للمسرح التعليمي حضور قوي في المناهج التربوية الحديثة. إن الاستثمار في هذا النهج يعزز جودة التعليم ويخلق جيلًا قادرًا على التفكير والإبداع.
+    </h1>
+    <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+        }
+        h1{
+            text-align: center;
+            font-size: 40px;
+            color: aliceblue;
+        }
+    </style>
+</body>
+</html>

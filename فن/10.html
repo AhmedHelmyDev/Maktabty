@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <center>
+    <p>
+        فن التصوير الفوتوغرافي: إبداعٌ بصريّ يحاكي الزمن
+    </p></center>
+<h1>
+    مقدمة
+   :فن التصوير الفوتوغرافي هو وسيلة حديثة للتعبير الفني تستخدم الضوء والتكنولوجيا لالتقاط اللحظات وتحويلها إلى صور دائمة. يجمع هذا الفن بين الجانب التقني والإبداعي، مما يجعله واحدًا من أكثر الفنون تأثيرًا في العصر الحديث، سواء في مجال الإعلام، الإعلان، أو حتى التوثيق الشخصي.
+    
+    </h1>
+    <h2>
+        تعريف التصوير الفوتوغرافي
+التصوير الفوتوغرافي هو عملية تسجيل الصور من خلال التقاط الضوء بواسطة كاميرا مخصصة لذلك، سواء كانت تقليدية تعتمد على الفيلم أو رقمية تخزن الصور إلكترونيًا. يمكن للتصوير أن يعكس الواقع أو يُستخدم كوسيلة لتجسيد الأفكار الإبداعية.
+    </h2>
+    <h3>
+        أنواع التصوير الفوتوغرافي
+        التصوير الشخصي (Portrait Photography):
+        
+        يركز على تصوير الأشخاص، مع إظهار ملامحهم وتعابيرهم بشكل مميز.
+        التصوير الطبيعي (Nature Photography):
+        
+        يوثق الجمال الطبيعي مثل المناظر الخلابة، الأزهار، والحيوانات.
+        التصوير الصحفي (Photojournalism):
+        
+        يُستخدم لنقل الأحداث والقصص الواقعية.
+        التصوير التجاري (Commercial Photography):
+        
+        يشمل تصوير المنتجات، الإعلانات، والأزياء.
+        التصوير المعماري (Architectural Photography):
+        
+        يهتم بتصوير المباني والهياكل بطريقة تبرز جمال التصميم.
+        التصوير التجريدي (Abstract Photography):
+        
+        يركز على الإبداع بتجسيد الأشكال والألوان بصورة غير تقليدية.
+   </h3>
+    <h4>
+        أدوات التصوير الفوتوغرافي
+        الكاميرا:
+        تتنوع بين الكاميرات الرقمية (DSLR) والكاميرات التقليدية التي تستخدم الأفلام.
+        العدسات:
+        تُستخدم لالتقاط الصور بزوايا مختلفة، مثل عدسات الزوم أو العدسات العريضة.
+        الإضاءة:
+        الإضاءة الطبيعية أو الاصطناعية تُعد أساسية للحصول على جودة صور عالية.
+        الملحقات الإضافية:
+        الحوامل الثلاثية (Tripod)، والمرشحات (Filters)، وبرامج تعديل الصور.
+          
+    </h4>
+    <h5>
+        أهمية التصوير الفوتوغرافي
+        توثيق الأحداث:
+        يُستخدم التصوير لتوثيق اللحظات التاريخية والشخصية.
+        وسيلة للتعبير الفني:
+        يتيح التصوير للفنانين التعبير عن أفكارهم ومشاعرهم.
+        التسويق والإعلان:
+        التصوير عنصر أساسي في الحملات الدعائية.
+        التعليم والتثقيف:
+        يُستخدم في إنتاج محتوى تعليمي بصري.
+    </h5>
+    <h6>
+        مهارات المصور المحترف
+        الإلمام بالتقنيات:
+        معرفة كيفية ضبط الكاميرا، الإضاءة، وتحرير الصور.
+        القدرة على الإبداع:
+        ابتكار زوايا ورؤى جديدة.
+        الصبر والدقة:
+        انتظار اللحظة المثالية لالتقاط الصورة.
+        فهم الألوان والتكوين:
+        التعامل مع الألوان والظلال لتحقيق توازن بصري.
+    </h6>
+    <h7>
+        التحديات التي يواجهها المصورون
+        التكنولوجيا المتغيرة:
+        مواكبة التطورات المستمرة في المعدات والتقنيات.
+        الطقس والبيئة:
+        التعامل مع ظروف التصوير الخارجية غير المتوقعة.
+        المنافسة:
+        التميز وسط العدد الكبير من المصورين المحترفين والهواة.
+        فن التصوير الفوتوغرافي في العالم العربي
+        شهد التصوير الفوتوغرافي في العالم العربي تطورًا ملحوظًا مع بروز عدد من المصورين المبدعين الذين نجحوا في المزج بين التراث الثقافي والحداثة، وساهموا في إبراز القضايا المجتمعية والجمال الطبيعي من خلال عدساتهم.
+        
+            
+    </h7>
+    <h8>
+        <center>خاتمة</center>
+        <br>
+        فن التصوير الفوتوغرافي ليس مجرد عملية تقنية، بل هو لغة عالمية تُجسّد الأفكار والمشاعر، وتُخلّد اللحظات التي قد لا تتكرر. ومع التطور المستمر في هذا المجال، يظل الإبداع والرؤية الفنية هما جوهر النجاح في هذا الفن.
+    </h8>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000000e7;
+        }
+        h1{
+            font-size: 30px;
+            color: #f2f2f2da;
+        }
+        h2{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h3{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h4{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h5{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h6{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h7{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h8{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        p{
+            font-size: 29px;
+             color: #f2f2f2;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <h1>
+        <center>مقدمة</center>
+        الخبر الصحفي: العمود الفقري للإعلام
+    
+        الخبر الصحفي هو الوسيلة الأساسية لنقل المعلومات إلى الجمهور، وهو حجر الزاوية في العمل الإعلامي. يُعتبر الخبر الصحفي البوابة الأولى لفهم الأحداث والقضايا الجارية في العالم، ويهدف إلى تقديم الحقائق بشكل دقيق ومهني يساعد على تشكيل وعي الجمهور.
+        
+        تعريف الخبر الصحفي
+        الخبر الصحفي هو تقرير مختصر وموضوعي يهدف إلى نقل معلومات جديدة أو مستجدة حول حدث معين أو موضوع يهم الجمهور، ويتم تقديمه بطريقة واضحة ومباشرة.
+        
+        خصائص الخبر الصحفي
+        الجِدّة:
+        يتناول معلومات أو أحداثًا حديثة أو غير معروفة.
+        الأهمية:
+        يركز على موضوعات تهم الجمهور أو تؤثر على حياتهم.
+        الواقعية:
+        يقدم الحقائق المدعومة بمصادر موثوقة.
+        الإيجاز:
+        يُكتب بأسلوب مختصر ومباشر دون إسهاب.
+        الوضوح:
+        يستخدم لغة بسيطة وسهلة الفهم.
+        أنواع الأخبار الصحفية
+        الأخبار السياسية:
+        تغطي الأحداث الحكومية، السياسية، والدبلوماسية.
+        الأخبار الاقتصادية:
+        تشمل التقارير عن الأسواق، الشركات، والاقتصاد الوطني والعالمي.
+        الأخبار الاجتماعية:
+        تناقش القضايا التي تؤثر على المجتمع مثل التعليم والصحة.
+        الأخبار الرياضية:
+        تتعلق بالأحداث الرياضية والبطولات.
+        الأخبار الترفيهية:
+        تغطي مجالات الفنون، الثقافة، والمشاهير.
+        الأخبار الحوادثية:
+        تتناول الكوارث الطبيعية، الجرائم، والحوادث.
+        مكونات الخبر الصحفي
+        1. العنوان:
+        يُعتبر أول ما يجذب القارئ، ويجب أن يكون مختصرًا، واضحًا، ومثيرًا للاهتمام.
+        2. المقدمة (Lead):
+        تحتوي على أهم المعلومات وتجيب على الأسئلة الستة:
+        من؟ ماذا؟ متى؟ أين؟ لماذا؟ وكيف؟
+        3. التفاصيل (Body):
+        تتوسع في تقديم المعلومات، وتضيف بيانات داعمة وخلفيات ذات صلة.
+        4. الخاتمة:
+        قد تكون تلخيصًا أو تساؤلًا مفتوحًا أو توقعًا مستقبليًا.
+        أساليب كتابة الخبر الصحفي
+        1. أسلوب الهرم المقلوب:
+        يتم ترتيب المعلومات من الأكثر أهمية إلى الأقل أهمية.
+        يُستخدم لإعطاء القارئ الصورة الكاملة بسرعة.
+        2. أسلوب الهرم المعتدل:
+        يبدأ بمقدمة تمهيدية ثم يتوسع تدريجيًا نحو ذروة الحدث.
+        3. أسلوب السرد القصصي:
+        يتم تقديم الخبر على شكل قصة لجذب انتباه القارئ.
+        معايير الخبر الصحفي الجيد
+        1. الدقة:
+        يجب التحقق من صحة المعلومات وتجنب الأخطاء.
+        2. الحيادية:
+        تقديم الخبر دون تحيز أو توجه شخصي.
+        3. الوضوح:
+        استخدام لغة مباشرة خالية من التعقيد.
+        4. المصداقية:
+        الاعتماد على مصادر موثوقة وموثقة.
+        5. الجاذبية:
+        صياغة الخبر بأسلوب يجعل القارئ يرغب في استكماله.
+        مصادر الأخبار الصحفية
+        التقارير الصحفية:
+        يتم جمعها من المراسلين في الميدان.
+        المؤتمرات الصحفية:
+        تُقدم فيها المعلومات مباشرة من الشخصيات أو المؤسسات المعنية.
+        البيانات الرسمية:
+        تصدر عن الجهات الحكومية أو الشركات.
+        وكالات الأنباء:
+        مثل وكالة رويترز ووكالة الأنباء الفرنسية.
+        شبكات التواصل الاجتماعي:
+        تُعد مصدرًا للأخبار العاجلة، مع ضرورة التحقق منها.
+        التحديات التي تواجه الأخبار الصحفية
+        انتشار الأخبار المزيفة:
+        يؤدي إلى صعوبة التفريق بين الحقائق والإشاعات.
+        ضغط الوقت:
+        الحاجة إلى نشر الأخبار بسرعة دون التضحية بجودتها.
+        التنافسية الإعلامية:
+        التنافس على جذب الانتباه قد يؤدي إلى التركيز على الإثارة بدلًا من المصداقية.
+        التأثيرات السياسية والاقتصادية:
+        قد تؤثر على حيادية وسائل الإعلام.
+        أخلاقيات كتابة الخبر الصحفي
+        احترام الخصوصية:
+        تجنب انتهاك خصوصية الأفراد أو نشر معلومات حساسة دون مبرر.
+        عدم التحيز:
+        الالتزام بالحيادية في نقل الأحداث.
+        الابتعاد عن الإثارة:
+        تقديم الأخبار بموضوعية دون التركيز على الجانب المثير على حساب الحقيقة.
+        احترام المصادر:
+        الحفاظ على سرية المصادر عند الحاجة.
+        الخبر الصحفي في العصر الرقمي
+        مع تطور التكنولوجيا ووسائل الإعلام، أصبح تحرير الأخبار الصحفية يركز بشكل أكبر على:
+        
+        الأخبار العاجلة (Breaking News):
+        تُنشر بسرعة عبر المواقع الإخبارية ووسائل التواصل الاجتماعي.
+        التفاعل مع الجمهور:
+        السماح بالتعليقات والمناقشات لزيادة التفاعل.
+        التوافق مع محركات البحث (SEO):
+        كتابة الأخبار بصيغة تسهّل ظهورها في نتائج البحث.
+        الوسائط المتعددة:
+        استخدام الصور والفيديوهات لتعزيز الخبر.
+       <center>خاتمة</center>
+        الخبر الصحفي هو أداة قوية لتوصيل المعلومات وتشكيل الوعي المجتمعي. يعتمد نجاحه على الدقة، الموضوعية، والجاذبية، مما يضع الصحفي أمام مسؤولية كبيرة في تقديم محتوى يساهم في تحقيق الشفافية والوعي في المجتمع.
+        
+       
+    </h1>
+    <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+        }
+        h1{
+            text-align: center;
+            font-size: 40px;
+            color: aliceblue;
+        }
+    </style>
+</body>
+</html>

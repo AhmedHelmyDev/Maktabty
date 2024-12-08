@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <center>
+    <p>
+        التربية الفنية: بوابة الإبداع والتعبير
+    </p></center>
+<h1>
+    مقدمة
+    التربية الفنية هي مجال تعليمي يسعى إلى تنمية الحس الجمالي والقدرة الإبداعية لدى الأفراد من خلال الفن. تتجاوز التربية الفنية مفهوم الرسم أو التلوين، لتشمل التعبير عن الذات، تطوير المهارات البصرية، وتعزيز التفاعل مع البيئة المحيطة. تُعدّ هذه المادة أساسًا لتنمية شخصية متكاملة ومبدعة، حيث تجمع بين الفن والتربية في إطار ثقافي واجتماعي.
+    </h1>
+    <h2>
+        تعريف التربية الفنية
+        التربية الفنية هي عملية تعليمية تهدف إلى تنمية المهارات الفنية، وتشجيع التفكير الإبداعي، وتعزيز تقدير الفن كوسيلة للتعبير والثقافة. تُركّز على تطوير قدرات الأفراد على التعبير من خلال مختلف الوسائط الفنية، مثل الرسم، النحت، الحرف اليدوية، التصميم، والتصوير.
+    <h3>
+        
+        أهداف التربية الفنية
+        <br>
+        
+        تنمية الإبداع: تعزيز القدرة على التفكير بطرق مبتكرة وخلاقة.
+        التعبير عن الذات: تمكين الأفراد من التعبير عن مشاعرهم وأفكارهم من خلال الأعمال الفنية.
+        تطوير المهارات: تحسين القدرات اليدوية والبصرية، مثل التوازن والتناسق.
+        تعزيز التقدير الجمالي: فهم الجمال في الطبيعة والفن والمجتمع.
+        تعزيز الهوية الثقافية: ربط المتعلم بتراثه الثقافي وتعريفه بفنون الحضارات الأخرى.
+        تحقيق التوازن النفسي: الفن كوسيلة للترويح عن النفس وتقليل التوتر.
+        
+        
+    </h3>
+    <h4>
+        أهمية التربية الفنية
+        تنمية الشخصية: تساعد التربية الفنية على تطوير الثقة بالنفس والقدرة على التعبير عن الأفكار.
+        التفكير النقدي: تعلم تحليل الأعمال الفنية وفهم الرسائل التي تحملها.
+        الاندماج الاجتماعي: تشجع العمل الجماعي وتعزز التفاهم الثقافي بين الأفراد.
+        اكتشاف المواهب: تُعتبر التربية الفنية وسيلة لاكتشاف مواهب الأفراد وتوجيهها.
+        مجالات التربية الفنية
+        الفنون التشكيلية: مثل الرسم، التصوير، النحت، والزخرفة.
+        الفنون الحرفية: مثل صناعة الفخار، التطريز، وحرف الخشب.
+        الفنون الرقمية: استخدام التكنولوجيا في التصميم والرسم.
+        التصميم والديكور: التعرف على أسس التصميم الداخلي والخارجي.
+        
+          
+    </h4>
+    <h5>
+        طرق تدريس التربية الفنية
+        التعلم التجريبي: التركيز على تنفيذ المشاريع الفنية.
+        الربط بالحياة اليومية: توظيف المهارات الفنية في مواقف حياتية.
+        التعلم التعاوني: العمل ضمن فرق لتطوير مشاريع فنية.
+        التقييم النقدي: تعليم الطلاب كيفية تحليل أعمالهم وأعمال الآخرين.
+      
+    </h5>
+    <h6>
+        التربية الفنية والتنمية الشاملة
+التنمية العقلية: تُحفز التفكير الإبداعي وحل المشكلات.
+التنمية الحسية: تحسين إدراك الألوان، الأشكال، والمساحات.
+التنمية الاجتماعية: تعزيز العمل الجماعي وفهم الثقافات المختلفة.
+التنمية العاطفية: التعبير عن المشاعر والانسجام النفسي.
+
+    </h6>
+    <h7>
+        التحديات التي تواجه التربية الفنية
+        قلة الموارد: نقص الأدوات والمواد الفنية في بعض المؤسسات التعليمية.
+        عدم الاهتمام الكافي: التركيز على المواد العلمية على حساب التربية الفنية.
+        التحديات الثقافية: بعض المجتمعات تقلل من أهمية الفنون في التعليم.
+    </h7>
+   <h8>
+   <center>الخاتمة</center>
+    <br>
+    لتربية الفنية ليست مجرد مادة دراسية، بل هي أداة لتعزيز الإبداع، وتنمية المهارات، وتعميق الوعي الثقافي والجمالي. إنها تفتح آفاقًا واسعة للمتعلمين لاستكشاف العالم من منظور فني، وتُسهم في بناء مجتمع متوازن يقدّر الجمال في جميع مظاهره.
+    </h8>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000000e7;
+        }
+        h1{
+            font-size: 30px;
+            color: #f2f2f2da;
+        }
+        h2{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h3{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h4{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h5{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h6{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h7{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h8{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        p{
+            font-size: 29px;
+             color: #f2f2f2;
+        }
+    </style>
+</body>
+</html>

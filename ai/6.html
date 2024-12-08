@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai6</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <style>
+        body {
+            background-color: black;
+            color: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1, h2, h3, h4, p {
+            font-size: 24px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>الأساسيات: حجر الأساس للنجاح</p>
+
+        <h1>
+            مقدمة<br>
+            تشير كلمة الأساسيات إلى المبادئ أو القواعد أو المفاهيم الأساسية التي تُشكِّل الأساس لأي مجال أو مهارة. سواء كنت تتعلم لغة جديدة، أو تخوض في مجال مثل برمجة الويب، أو تسعى لإتقان رياضة معينة، فإن فهم الأساسيات يُعدُّ مفتاحًا لبناء الخبرة وتحقيق النجاح على المدى الطويل.
+        </h1>
+
+        <h2>
+            لماذا تُعد الأساسيات مهمة؟<br>
+            توفر قاعدة قوية: كما يحتاج البناء إلى أساس صلب ليقف بثبات، فإن كل مجال أو مهارة يتطلب فهمًا راسخًا لمبادئه الأساسية.<br>
+            تُمكِّن من التعلم المتقدم: إتقان الأساسيات يجعل من السهل التعامل مع المفاهيم والتحديات المتقدمة.<br>
+            تعزز مهارات حل المشكلات: الفهم الواضح للأساسيات يساعدك في تحليل المشكلات وإيجاد حلول فعّالة.<br>
+            تضمن الأداء المستمر: في أي مجال، توجهك الأساسيات نحو أداء متسق وموثوق.
+        </h2>
+
+        <h3>
+            أمثلة على الأساسيات في مجالات مختلفة<br>
+            برمجة الويب: معرفة كيفية هيكلة المحتوى باستخدام HTML، وتصميمه باستخدام CSS، وجعل الموقع تفاعليًا باستخدام JavaScript تُعد من الأساسيات لكل مطور ويب.<br>
+            الفيزياء: فهم قوانين نيوتن للحركة ضروري لاستكشاف الميكانيكا والمواضيع المتقدمة الأخرى.<br>
+            الرياضة: ممارسة الحركات الأساسية، مثل المراوغة في كرة السلة أو وضع القدم الصحيح في كرة القدم، تُعد الأساس لإتقان المهارات الأكثر تعقيدًا.<br>
+            كيف تتقن الأساسيات؟<br>
+            ابدأ صغيرًا: ركز على تعلم مفهوم واحد في كل مرة دون استعجال.<br>
+            مارس بانتظام: التكرار يساعد على تعزيز الفهم والمهارات.<br>
+            احصل على ملاحظات: تعلَّم من مرشدين أو زملاء يمكنهم مساعدتك في تحسين أدائك.<br>
+            كن فضوليًا: استكشف السبب وراء كل مبدأ أساسي لتعميق فهمك.
+        </h3>
+
+        <h4>
+            الخاتمة<br>
+            الأساسيات هي حجر الزاوية للخبرة والنجاح. قد تبدو بسيطة، لكنها لا تقل أهمية عن المفاهيم المعقدة. سواء كنت طالبًا، محترفًا، أو هاويًا، لا تستهِن بقوة إتقان الأساسيات – فهي أعظم أصولك في أي رحلة نحو التطور والتميز.
+        </h4>
+    </div>
+
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <center>
+    <p>
+        المعادن وأهميتها في حياة الإنسان\
+        مقدمة
+    </p></center>
+<h1>
+    المعادن هي مكونات أساسية لكوكب الأرض، وتُعد من أهم الموارد التي شكلت تطور الحضارات البشرية. فمنذ العصور القديمة، استخدم الإنسان المعادن لصناعة الأدوات والأسلحة، ومع تطور الزمن أصبحت المعادن محورًا للصناعات الحديثة، بدءًا من البناء وحتى الإلكترونيات المتقدمة.
+    </h1>
+    <h2>
+        تعريف المعادن
+        المعادن هي مواد صلبة طبيعية تتكون من عناصر كيميائية بنسب محددة، ولها بنية بلورية تميزها عن غيرها من المواد. تُستخرج المعادن من قشرة الأرض على هيئة خامات، ثم تُعالج لاستخلاص المواد المفيدة منها.
+        
+    </h2>
+    <h3>
+        خصائص المعادن
+        الصلابة: المعادن تختلف في صلابتها، ويُقاس ذلك بمقياس "موس".
+        الماس هو أكثر المعادن صلابة.
+        البريق: يعكس بعض المعادن الضوء بشكل واضح مثل الذهب والفضة.
+        التوصيل الحراري والكهربائي: تعتبر المعادن مثل النحاس والفضة موصلات جيدة.
+        الكثافة: المعادن الثقيلة مثل الرصاص أكثر كثافة مقارنة بالألومنيوم.
+        القابلية للتشكيل: بعض المعادن مثل الذهب يمكن طرقها وثنيها بسهولة
+     </h3>
+    <h4>
+        أنواع المعادن واستخداماتها
+        المعادن الفلزية
+        الحديد: يستخدم في البناء وصناعة الأدوات الثقيلة.
+        الألومنيوم: خفيف الوزن ومثالي لصناعة الطائرات والسيارات.
+        النحاس: أساس الأسلاك الكهربائية.
+         المعادن غير الفلزية
+        الكبريت: يدخل في الصناعات الكيميائية.
+        الفوسفات: يُستخدم كسماد زراعي لتحسين جودة التربة.
+        الكوارتز: مادة أساسية في صناعة الزجاج.
+        المعادن الثمينة
+        الذهب: رمز للثروة ويُستخدم في صناعة الحلي.
+        الفضة: تُستخدم في الإلكترونيات والطب.
+        البلاتين: ذو قيمة عالية ويُستخدم في المحركات والأدوات الطبية.
+         المعادن المشعة
+        اليورانيوم: يُستخدم في توليد الطاقة النووية.
+        
+          
+    </h4>
+    <h5>
+        طرق استخراج المعادن
+        التعدين السطحي:
+        
+        يُستخدم لاستخراج المعادن القريبة من السطح، مثل الفحم وخام الحديد.
+        التعدين تحت الأرض:
+        
+        يستخرج المعادن الموجودة على أعماق كبيرة، مثل الذهب والماس.
+        الاستخراج من المياه:
+        
+        المعادن مثل الملح والمعادن النادرة تُستخرج من البحار والمحيطات.
+    </h5>
+    <h6>
+        أهمية المعادن في حياة الإنسان
+في الصناعة:
+
+تشكل المعادن جزءًا لا يتجزأ من الصناعات الثقيلة والخفيفة.
+في التكنولوجيا:
+
+تُستخدم المعادن النادرة في صناعة الهواتف الذكية والأجهزة الإلكترونية.
+في الزراعة:
+
+تُستخدم المعادن مثل الفوسفات في تحسين إنتاجية الأراضي الزراعية.
+في الحياة اليومية:
+
+من أدوات المطبخ إلى وسائل النقل، المعادن موجودة في كل مكان.
+
+    </h6>
+    <h7>
+        التحديات المرتبطة بالمعادن
+        التأثير البيئي:
+        عمليات التعدين قد تؤدي إلى تدمير المواطن الطبيعية وتلوث البيئة.
+        استنزاف الموارد:
+        الاستخدام المفرط للمعادن يمكن أن يؤدي إلى نقصها.
+        ارتفاع التكلفة:
+        المعادن النادرة تُعد مكلفة بسبب صعوبة استخراجها.
+        المعادن والاستدامة
+        لمواجهة التحديات البيئية والاقتصادية، يمكن اللجوء إلى:
+        
+        إعادة التدوير:
+        إعادة استخدام المعادن المستهلكة يقلل من الحاجة إلى التعدين.
+        التقنيات الحديثة:
+        تحسين طرق استخراج المعادن لتقليل الأضرار البيئية.
+        الاستخدام الرشيد:
+        تنظيم استهلاك المعادن بما يضمن الحفاظ على الموارد للأجيال القادمة.
+        
+    </h7>
+    <h8>
+        خاتمة
+        <br>
+        المعادن هي عصب الحياة الحديثة وأساس الصناعات المتقدمة. ورغم التحديات المرتبطة بها، فإن إدارتها بشكل مستدام يُمكن أن يُحدث فرقًا كبيرًا في تحقيق التوازن بين التقدم الاقتصادي والحفاظ على البيئة.
+
+    </h8>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000000e7;
+        }
+        h1{
+            font-size: 30px;
+            color: #f2f2f2da;
+        }
+        h2{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h3{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h4{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h5{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h6{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h7{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h8{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        p{
+            font-size: 29px;
+             color: #f2f2f2;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=98JR8szr"></script>
+    <script>
+        // Function to speak all the text on the page
+        function speakText() {
+            const textToRead = document.body.innerText; // Extract all the text content from the body
+            console.log("Preparing to speak the page content...");
+            if (typeof responsiveVoice !== "undefined") {
+                responsiveVoice.speak(textToRead, "Arabic Male"); // Use Arabic Male voice from ResponsiveVoice API
+                console.log("Speaking text on the page...");
+            } else {
+                console.error("ResponsiveVoice API is not available.");
+                alert("Text-to-Speech (TTS) API is not available.");
+            }
+        }
+    
+        // Speech Recognition Setup
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'en-US'; // Set language to English
+        recognition.interimResults = false;  // Do not display partial results
+        recognition.continuous = true; // Keep listening continuously
+    
+        // Function to start listening for voice commands
+        function startListening() {
+            try {
+                recognition.start(); // Start the recognition process
+                console.log("Listening for voice commands...");
+            } catch (error) {
+                console.error("Error starting speech recognition:", error);
+            }
+        }
+    
+        // Handle recognized voice commands
+        recognition.onresult = function(event) {
+            const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+            console.log("Recognized voice command:", transcript);
+    
+            // Check if the transcript includes the word "home"
+            if (transcript.includes("home")) {
+                console.log("Redirecting to the homepage...");
+                window.location.href = "https://library-yaseen.netlify.app/"; // Redirect to the homepage
+            } else {
+                console.log("No matching command found. Transcript: ", transcript);
+            }
+        };
+    
+        // Handle speech recognition errors
+        recognition.onerror = function(event) {
+            console.error("Speech recognition error:", event.error);
+            alert(`Speech recognition error: ${event.error}`);
+        };
+    
+        // Trigger TTS and speech recognition as soon as the page loads
+        window.onload = function() {
+            if (!("SpeechRecognition" in window || "webkitSpeechRecognition" in window)) {
+                alert("Speech recognition is not supported in your browser.");
+                console.error("Speech recognition is not supported in your browser.");
+                return;
+            }
+    
+            speakText();  // Call speakText function when the page is fully loaded
+            startListening(); // Start listening for voice commands
+        };
+    </script>
+
+</head>
+<body>
+    <center>
+    <p>
+        الفن في عصر النهضة
+    </p></center>
+<h1>
+    مقدمة
+    عصر النهضة (Renaissance) هو فترة تاريخية هامة في أوروبا امتدت تقريبًا من القرن الرابع عشر إلى القرن السابع عشر. شهدت هذه الفترة تحولًا جذريًا في الفكر والثقافة، وكان الفن من أبرز مظاهر هذا التغيير، حيث أعاد الفنانون إحياء القيم والأساليب الكلاسيكية للإغريق والرومان، وأضافوا إليها رؤى وأفكارًا جديدة ترتكز على الإنسان والطبيعة. 
+    </h1>
+    <h2>
+        ما هو عصر النهضة؟
+        عصر النهضة يعني "النهضة" أو "الإحياء"، وهو يشير إلى فترة من التحولات الثقافية والفنية الكبرى التي بدأت في إيطاليا ثم انتشرت في جميع أنحاء أوروبا. تميز هذا العصر باهتمام كبير بالعلوم، الفلسفة، الأدب، والفنون، وكان الإنسان هو المحور الأساسي لهذه الحركة، مما أدى إلى ظهور فن يعكس الروح الإنسانية والاهتمام بالتفاصيل والجمال.
+        
+        
+        
+    </h2>
+    <h3>
+        خصائص الفن في عصر النهضة
+        الواقعية والتشريح:
+        
+        ركز الفنانون على تصوير الإنسان بشكل دقيق يعتمد على دراسة التشريح والجسد البشري.
+        المنظور (Perspective):
+        
+        تم تطوير تقنيات الرسم ثلاثي الأبعاد لإعطاء العمق والواقعية للأعمال الفنية.
+        الاهتمام بالطبيعة:
+        
+        ظهرت عناصر الطبيعة بشكل بارز في اللوحات والمنحوتات.
+        التوازن والتناغم:
+        
+        السعي لتحقيق الكمال الجمالي من خلال توازن الألوان والأشكال.
+        الإلهام من الكلاسيكية:
+        
+        اقتباس عناصر من الفنون اليونانية والرومانية القديمة.
+   </h3>
+    <h4>
+        أهم فناني عصر النهضة
+         ليوناردو دا فينشي (1452–1519):
+        يُعتبر أحد أعظم الفنانين في عصر النهضة.
+        أبرز أعماله: لوحة "الموناليزا"، و"العشاء الأخير".
+        كان عالمًا ومخترعًا، وترك بصمة في الفن والعلم.
+        مايكل أنجلو (1475–1564):
+        نحات ورسّام وشاعر معماري.
+        أبرز أعماله: تمثال "داوود"، ولوحة "خلق آدم" في سقف كنيسة سيستينا.
+       رافاييل (1483–1520):
+        مشهور بأعماله الدينية واللوحات الجدارية.
+        أبرز أعماله: "مدرسة أثينا" التي تجسد التوازن والتناغم.
+       تيتيان (1488–1576):
+        رسام إيطالي ركز على استخدام الألوان بشكل إبداعي.
+        من رواد فن البورتريه والمناظر الطبيعية.
+
+    </h4>
+    <h5>
+        أشكال الفن في عصر النهضة
+        الرسم:
+        
+        تطور الرسم ليشمل المنظور الواقعي واستخدام تقنيات الضوء والظل (Chiaroscuro).
+        النحت:
+        
+        العودة إلى الأشكال الكلاسيكية للجسد البشري، كما في أعمال مايكل أنجلو.
+        العمارة:
+        
+        ظهر أسلوب معماري يجمع بين الجمال والوظيفة، مثل كاتدرائية القديس بطرس في روما.
+        الفنون الزخرفية:
+        
+        تطورت الأقمشة المزخرفة والمجوهرات والنقوش التي تحمل طابعًا نهضويًا.
+        
+    </h5>
+    <h6>
+        أثر الفن في عصر النهضة
+        إحياء الفكر الكلاسيكي:
+        
+        ساهم الفن في تعزيز قيم الثقافة الإغريقية والرومانية القديمة.
+        الثورة العلمية:
+        
+        ترابط الفن والعلم، حيث استخدم الفنانون تقنيات علمية لتطوير أعمالهم.
+        التأثير الثقافي:
+        
+        أصبحت الفنون في عصر النهضة نموذجًا للفن الأوروبي الحديث، وامتد تأثيرها عبر القرون.
+        الإنسانية:
+        
+        جعلت الفنون الإنسان والطبيعة محور الإبداع، مما غيّر المفاهيم التقليدية في أوروبا.
+        
+    </h6>
+
+    <h8>
+        <center>
+            خاتمة 
+        </center>
+        الفن في عصر النهضة يمثل نقطة تحول في تاريخ الإنسانية، حيث جسّد عظمة الإبداع البشري وسعيه لفهم الجمال والروح. من خلال إعادة اكتشاف التراث الكلاسيكي وابتكار أساليب جديدة، أسس فنانو عصر النهضة قاعدة للفنون الحديثة التي نعرفها اليوم.
+        <br>
+    </h8>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000000e7;
+        }
+        h1{
+            font-size: 30px;
+            color: #f2f2f2da;
+        }
+        h2{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h3{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h4{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h5{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h6{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h7{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        h8{
+            font-size: 30px;
+            color: #f2f2f2;
+        }
+        p{
+            font-size: 29px;
+             color: #f2f2f2;
+        }
+    </style>
+</body>
+</html>
